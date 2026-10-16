@@ -1,0 +1,6 @@
+shadow prebuilt repo: xz-embedded (target)
+  upstream: external/xz-embedded
+  api-level: 32 (branch 32-20261016)
+  blobs: org.blisslabs.ag.xz.embedded.apex org.blisslabs.ag.xz.embedded.dev.apex org.blisslabs.ag.xz.embedded.doc.apex
+  dev-src: matching upstream external/xz-embedded/Android.bp providing libxz static library
+  date: 2026-10-16

@@ -1,0 +1,52 @@
+package {
+    default_applicable_licenses: ["external_xz-embedded_license"],
+}
+
+license {
+    name: "external_xz-embedded_license",
+    visibility: [":__subpackages__"],
+    license_kinds: [
+        "legacy_unencumbered",
+    ],
+    license_text: [
+        "COPYING",
+    ],
+}
+
+prebuilt_apex {
+    name: "org.blisslabs.ag.xz.embedded",
+    apex_name: "org.blisslabs.ag.xz.embedded",
+    source_apex_name: "org.blisslabs.ag.xz.embedded",
+    arch: {
+        x86_64: {
+            src: "org.blisslabs.ag.xz.embedded.apex",
+        },
+    },
+    filename: "org.blisslabs.ag.xz.embedded.apex",
+    prefer: true,
+    installable: true,
+}
+
+cc_library_static {
+    name: "libxz",
+    host_supported: true,
+    ramdisk_available: true,
+    vendor_ramdisk_available: true,
+    recovery_available: true,
+    srcs: [
+        "linux/lib/xz/xz_crc32.c",
+        "linux/lib/xz/xz_dec_bcj.c",
+        "linux/lib/xz/xz_dec_lzma2.c",
+        "linux/lib/xz/xz_dec_stream.c",
+    ],
+    local_include_dirs: ["userspace"],
+    cflags: [
+        "-DXZ_DEC_X86",
+        "-DXZ_DEC_ARM",
+        "-DXZ_DEC_ARM64",
+        "-DXZ_DEC_ARMTHUMB",
+        "-Wall",
+        "-Werror",
+    ],
+    export_include_dirs: ["linux/include/linux/"],
+}
