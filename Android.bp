@@ -29,6 +29,8 @@ prebuilt_apex {
 
 cc_library_static {
     name: "libxz",
+    vendor_available: true,
+    product_available: true,
     host_supported: true,
     ramdisk_available: true,
     vendor_ramdisk_available: true,
